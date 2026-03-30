@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. DUMMY DATA PRODUK ---
     const products = [
         { id: 1, name: "Wireless Headphones", price: 299000, category: "electronics", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" },
         { id: 2, name: "Smart Watch Series X", price: 450000, category: "electronics", image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500" },
@@ -8,11 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 4, name: "Aesthetic Desk Lamp", price: 150000, category: "home", image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500" }
     ];
 
-    // --- 2.inisialisasi CART menggunakan Local Storage ---
     let cart = JSON.parse(localStorage.getItem('danekerti_cart')) || [];
     updateCartCount();
 
-    // --- 3. RENDER PRODUK KE HALAMAN (Jika ada elemen .product-grid) ---
     const productGrid = document.querySelector('.product-grid');
     if (productGrid) {
         products.forEach(product => {
@@ -32,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. LOGIKA ADD TO CART ---
     document.addEventListener('click', (e) => {
         if (e.target.closest('.add-to-cart')) {
             const btn = e.target.closest('.add-to-cart');
@@ -43,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('danekerti_cart', JSON.stringify(cart));
             updateCartCount();
             
-            // Notifikasi sukses kecil (Toast)
             Swal.fire({
                 toast: true,
                 position: 'top-end',
@@ -61,12 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
             countElement.textContent = cart.length;
         }
     }
-
-    // --- 5. LOGIKA CHECKOUT & POP UP PEMBAYARAN (Hanya jalan di cart.html) ---
     const checkoutBtn = document.getElementById('checkout-button');
     if (checkoutBtn) {
         
-        // Asumsi hitung total (bisa di-improve nanti)
         let totalHarga = cart.reduce((total, item) => total + item.price, 0);
         document.getElementById('cart-total').textContent = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(totalHarga);
 
@@ -75,8 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 Swal.fire('Ups!', 'Keranjang kamu masih kosong.', 'warning');
                 return;
             }
-
-            // POP-UP PEMBAYARAN MENGGUNAKAN SWEETALERT2
             Swal.fire({
                 title: 'Pilih Metode Pembayaran',
                 html: `
@@ -91,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `,
                 icon: 'info',
                 showCancelButton: true,
-                confirmButtonColor: '#7e22ce', // Warna primary kita
+                confirmButtonColor: '#7e22ce', 
                 cancelButtonColor: '#dc3545',
                 confirmButtonText: 'Bayar Sekarang',
                 cancelButtonText: 'Batal',
@@ -100,8 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return method;
                 }
             }).then((result) => {
-                if (result.isConfirmed) {
-                    // Simulasi proses loading pembayaran
+                if (result.isConfirmed) {                    
                     Swal.fire({
                         title: 'Memproses Pembayaran...',
                         timer: 2000,
@@ -109,14 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         didOpen: () => {
                             Swal.showLoading();
                         }
-                    }).then(() => {
-                        // Sukses Pop-up
+                    }).then(() => {                       
                         Swal.fire(
                             'Berhasil!',
                             `Pembayaran via ${result.value.toUpperCase()} berhasil dikonfirmasi. Pesanan segera diproses.`,
                             'success'
                         ).then(() => {
-                            // Kosongkan cart setelah bayar
                             cart = [];
                             localStorage.setItem('danekerti_cart', JSON.stringify(cart));
                             window.location.href = 'index.html'; // Balik ke home
@@ -127,10 +114,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-// Fungsi untuk merender daftar belanja di halaman cart.html
+
 function displayCart() {
     const cartContainer = document.getElementById('cart-items');
-    if (!cartContainer) return; // Guard clause jika bukan di halaman cart
+    if (!cartContainer) return; 
 
     const cart = JSON.parse(localStorage.getItem('danekerti_cart')) || [];
     
@@ -173,18 +160,15 @@ function displayCart() {
     updatePriceSummary(subtotal);
 }
 
-// Fungsi hapus item tertentu
 window.removeItem = (index) => {
     let cart = JSON.parse(localStorage.getItem('danekerti_cart')) || [];
     cart.splice(index, 1);
     localStorage.setItem('danekerti_cart', JSON.stringify(cart));
-    displayCart(); // Re-render
-    updateCartCount(); // Update angka di navbar
+    displayCart(); 
+    updateCartCount(); 
 };
-
-// Fungsi update total harga
 function updatePriceSummary(subtotal) {
-    const shipping = subtotal > 0 ? 15000 : 0; // Simulasi ongkir 15rb
+    const shipping = subtotal > 0 ? 15000 : 0; 
     const total = subtotal + shipping;
 
     if (document.getElementById('cart-subtotal')) {
@@ -194,5 +178,4 @@ function updatePriceSummary(subtotal) {
     }
 }
 
-// Jalankan fungsi saat DOM selesai dimuat
 document.addEventListener('DOMContentLoaded', displayCart);
