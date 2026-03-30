@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - DANEKERTI Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="site-title">
+            <h1>DANEKERTI</h1>
+            <p>MEET EVERYONE'S NEEDS</p>
+        </div>
+        <nav>
+            <div class="search-container d-none d-md-flex">
+                <input type="text" id="searchInput" placeholder="Search products...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <div class="row gap-4 gap-lg-0">
+            <aside class="col-lg-3">
+                <div class="card border-0 shadow-sm" style="border-radius: 20px; position: sticky; top: 100px;">
+                    <div class="card-body p-4">
+                        <h4 class="mb-4" style="color: var(--primary); font-weight: 600;"><i class="fas fa-filter me-2"></i> Filters</h4>
+                        
+                        <div class="mb-4">
+                            <h6 class="fw-bold mb-3">Categories</h6>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="electronics" id="cat-elec">
+                                <label class="form-check-label" for="cat-elec">Electronics</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="fashion" id="cat-fash">
+                                <label class="form-check-label" for="cat-fash">Fashion</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="home" id="cat-home">
+                                <label class="form-check-label" for="cat-home">Home & Living</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6 class="fw-bold mb-3">Price Range</h6>
+                            <div class="input-group mb-2 shadow-sm rounded-pill overflow-hidden">
+                                <span class="input-group-text bg-white border-0"><i class="fas fa-coins text-muted"></i></span>
+                                <input type="number" class="form-control border-0 px-2" id="minPrice" placeholder="Min">
+                            </div>
+                            <div class="text-center my-2 text-muted fw-bold">-</div>
+                            <div class="input-group mb-2 shadow-sm rounded-pill overflow-hidden">
+                                <span class="input-group-text bg-white border-0"><i class="fas fa-coins text-muted"></i></span>
+                                <input type="number" class="form-control border-0 px-2" id="maxPrice" placeholder="Max">
+                            </div>
+                        </div>
+
+                        <button id="applyFilters" class="btn w-100 rounded-pill py-2 shadow-sm" style="background: var(--primary); color: white; font-weight: 600;">
+                            Apply Filters
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                    <h2 class="mb-0 fw-bold" style="color: var(--primary);">All Products</h2>
+                    <select id="sortBy" class="form-select w-auto shadow-sm rounded-pill border-0 px-4 py-2" style="cursor: pointer;">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+                
+                <div class="product-grid" id="main-product-list">
+                    </div>
+            </section>
+        </div>
+    </main>
+
+    </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DANEKERTI Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="site-title">
+            <h1>DANEKERTI</h1>
+            <p>MEET EVERYONE'S NEEDS</p>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container py-5 my-4">
+        
+        <section class="text-center mb-5 pb-3">
+            <h1 class="display-4 fw-bold" style="color: var(--primary);">Get in Touch</h1>
+            <p class="lead text-muted">We'd love to hear from you. Drop us a line below.</p>
+        </section>
+
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <div class="d-flex flex-column gap-4 h-100 justify-content-center">
+                    
+                    <div class="card border-0 shadow-sm p-4 d-flex flex-row align-items-center" style="border-radius: 20px;">
+                        <div class="bg-light rounded-circle d-flex justify-content-center align-items-center me-4 shadow-sm" style="width: 60px; height: 60px;">
+                            <i class="fas fa-map-marker-alt fs-3" style="color: var(--primary);"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Our Location</h5>
+                            <p class="text-muted mb-0">Komplek Pusdikkes TNI-AD</p>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm p-4 d-flex flex-row align-items-center" style="border-radius: 20px;">
+                        <div class="bg-light rounded-circle d-flex justify-content-center align-items-center me-4 shadow-sm" style="width: 60px; height: 60px;">
+                            <i class="fas fa-phone fs-3" style="color: var(--primary);"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Call Us</h5>
+                            <p class="text-muted mb-0">+62 813 8057 0090 <br><small>Mon-Fri: 9AM - 6PM</small></p>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm p-4 d-flex flex-row align-items-center" style="border-radius: 20px;">
+                        <div class="bg-light rounded-circle d-flex justify-content-center align-items-center me-4 shadow-sm" style="width: 60px; height: 60px;">
+                            <i class="fas fa-envelope fs-3" style="color: var(--primary);"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Email Us</h5>
+                            <p class="text-muted mb-0">igedesanjaya28@gmail.com</p>
+                            <a href="https://saweria.co/yogadhananjaya" target="_blank" class="text-decoration-none small fw-bold mt-1 d-inline-block" style="color: var(--primary-light);">☕ Support via Saweria</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-lg p-5" style="border-radius: 25px;">
+                    <h3 class="fw-bold mb-4" style="color: var(--primary);">Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-semibold text-muted">Your Name</label>
+                                <input type="text" class="form-control rounded-pill px-4 py-2 border-0 shadow-sm bg-light" placeholder="John Doe" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-semibold text-muted">Your Email</label>
+                                <input type="email" class="form-control rounded-pill px-4 py-2 border-0 shadow-sm bg-light" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-muted">Subject</label>
+                            <select class="form-select rounded-pill px-4 py-2 border-0 shadow-sm bg-light" required>
+                                <option value="" selected disabled>Select Subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Product Support</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-muted">Message</label>
+                            <textarea class="form-control rounded-4 px-4 py-3 border-0 shadow-sm bg-light" rows="5" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn rounded-pill w-100 py-3 shadow-sm text-white fw-bold fs-5" style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); border: none; transition: transform 0.2s;">
+                            Send Message <i class="fas fa-paper-plane ms-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - DANEKERTI Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="site-title">
+            <h1>DANEKERTI</h1>
+            <p>MEET EVERYONE'S NEEDS</p>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="categories.html" class="active">Categories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container py-5 my-4">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold" style="color: var(--primary);">Shop by Category</h2>
+            <p class="text-muted">Find everything you need in our curated collections</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-radius: 20px; transition: transform 0.3s ease; overflow: hidden; cursor:pointer;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'" onclick="window.location.href='products.html?category=electronics'">
+                    <img src="image/elektronik.jpg" class="card-img-top" alt="Electronics" style="height: 250px; object-fit: cover;">
+                    <div class="card-body p-4 text-center">
+                        <h4 class="card-title fw-bold" style="color: var(--primary);">Electronics</h4>
+                        <p class="card-text text-muted mb-3">Latest gadgets and devices</p>
+                        <span class="badge rounded-pill bg-light text-dark px-3 py-2 border shadow-sm"><i class="fas fa-tag text-primary me-2"></i>150 items</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-radius: 20px; transition: transform 0.3s ease; overflow: hidden; cursor:pointer;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'" onclick="window.location.href='products.html?category=fashion'">
+                    <img src="image/fashion.jpg" class="card-img-top" alt="Fashion" style="height: 250px; object-fit: cover;">
+                    <div class="card-body p-4 text-center">
+                        <h4 class="card-title fw-bold" style="color: var(--primary);">Fashion</h4>
+                        <p class="card-text text-muted mb-3">Trendy clothing and accessories</p>
+                        <span class="badge rounded-pill bg-light text-dark px-3 py-2 border shadow-sm"><i class="fas fa-tag text-primary me-2"></i>200 items</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
